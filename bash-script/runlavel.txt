@@ -1,0 +1,82 @@
+How To Change Current/Default Runlevel in CentOS 8 / RHEL 8:
+------------------------------------------------------------------------------------------------------
+Change Current/Default Runlevel in CentOS 8
+Since CentOS 7 / RHEL 7, system run levels are replaced with targets and are managed by systemd.
+Systemd targets are represented by target units and their configuration files end with .target extension.
+
+This systemd target unit file contains other systemd units through a chain of dependencies.
+For example, the graphical.target which provides graphical console starts GNOME service (gdm.service) and activates the multi-user.target unit.
+
+Available Targets / Runlevels
+CentOS 8 / RHEL 8 comes with a number of predefined targets that are more or less similar to the standard set of runlevels found in CentOS 6 / RHEL 6.
+-------------------------------------------------------------------------------------------------
+Runlevel  Target Units  		Description
+0 runlevel0.target/poweroff.target 	Power off the system. => Shut down and power off the system.
+1 runlevel1.target/rescue.target 	Single User mode without GUI, without networking. => Set up a rescue shell.
+2 runlevel2.target/multi-user.target 	multi-user mode without GUI, without networking.  => Set up a non-graphical multi-user system.
+3 runlevel3.target/multi-user.target 	multi-user mode without GUI, but with networking. => Set up a non-graphical multi-user system.
+4 runlevel4.target/multi-user.target 	multi-user mode (for research use only).          => Set up a non-graphical multi-user system.
+5 runlevel5.target/graphical.target 	Graphical mode multiuser, with networking.        => Set up a graphical multi-user system.
+6 runlevel6.target/reboot.target 	Reboot the system.                                => Shut down and reboot the system.
+--------------------------------------------------------------------------------------------------
+
+See the current and previous run levels of your machine by below command:
+# runlevel
+
+# systemctl list-units --type target
+
+# who -r
+
+# systemctl show -p WantedBy sshd.service
+-------------------------------
+
+Change Default Runlevel
+
+The default runlevel can be set either by using the systemctl command or making a symbolic link of runlevel targets to the default.target file.
+
+1. Using systemctl Command:
+Let’s check the current run level by running the following command.
+# systemctl get-default
+Change the default run level.
+# systemctl set-default multi-user.target
+
+2. Making Symbolic link of runlevel targets:
+Before making the symbolic link, let’s list out the runlevel files in the systemd directory.
+# ls /lib/systemd/system/runlevel*target -l
+Issue the following command to make a symbolic link of runlevel5.target to the default.target file.
+# ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+or
+# ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
+
+Reboot the server and check it out.
+
+++++++++++++++++
+Changing current runlevel
+To change the runlevel for a system without rebooting or changing the /etc/inittab file, execute the following command as the root user:
+
+# telinit [runlevel_value]
+With [runlevel_value] having the following values:
+
+# telinit 5
+
+# systemctl isolate graphical.target
+
+# runlevel
+
+0 — Halt
+1 — Single-user mode
+2 — Not used (user-definable)
+3 — Full multi-user mode
+4 — Not used (user-definable)
+5 — Full multi-user mode (with an X-based login screen)
+6 — Reboot
+
+
+=====================
+
+You can temporarily switch into other immediately but it is for one time only, not permanent.
+Just Mention the runlevel number after init command.
+e.g. 0 to halt the machine and 6 to reboot.
+# init 0
+or 
+#init 5

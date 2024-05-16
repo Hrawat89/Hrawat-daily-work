@@ -20,7 +20,7 @@ To check the default configuration  file perametar value and all info
  #anisble-doc         #show the module information and also provide the module document option and other info
 ---------------------------------------------
 You can generate an Ansible configuration file, ansible.cfg, that lists all default settings as follows:
-$ ansible-config init --disabled > ansible.cfg
+$   
 Include available plugins to create a more complete Ansible configuration as follows:
 $ ansible-config init --disabled -t all > ansible.cfg
 $ ansible-config dump --only-changed show the only changed default value in config file to check the default vale of config file by command 
@@ -132,14 +132,14 @@ DEFINING VARIABLES:
 3. host scope: Variables set on host groups and individual hosts by the inventory, 
                fact gathering, or registered tasks
 			   
-Defining Variables in Playbooks:
+Defining Variables in Playbooks: (Vars block)
 1. by in playbook file
    - hosts: all
 	 vars:
 	   user: joe
 	   home: /home/joe			   
 	   
-2. by define in saprate vars file
+2. by define in saprate vars file ()
 
 	- hosts: all
 	  vars_files:
@@ -156,6 +156,7 @@ Using Variables in Playbooks:
 
 
 HOST VARIABLES AND GROUP VARIABLES:
+a. Inventory files
 [servers]
 demo.example.com ansible_user=joe
 
@@ -190,4 +191,113 @@ CAPTURING COMMAND OUTPUT WITH REGISTERED VARIABLES:
         state: installed
         register: install_result
     - debug: var=install_result
-    
+  
+--------------------------
+list of module 
+include
+template
+command
+service
+shell
+set_fact
+apt
+lineinfile
+copy
+yum
+assert
+include_tasks
+stat
+package
+get_url
+debug
+import_tasks
+include_vars
+apt_repository
+user
+fail
+unarchive
+apt_key
+pip
+systemd
+action
+git
+uri
+group
+sysctl
+raw
+mysql_user
+meta
+replace
+ini_file
+find
+local_action
+mysql_db
+cron
+wait_for
+rpm_key
+include_role
+yum_repository
+mount
+blockinfile
+firewalld
+ufw
+authorized_key
+docker_container
+dnf
+seboolean
+homebrew
+fetch
+npm
+osx_defaults
+postgresql_user
+pkgng
+pause
+script
+setup
+postgresql_db
+mysql_replication
+win_regedit
+pacman
+debconf
+slurp
+gem
+iptables
+apache2_module
+synchronize
+docker
+alternatives
+selinux
+oc_obj
+make
+win_shell
+modprobe
+hostname
+zypper
+xml
+supervisorctl
+win_file
+homebrew_cask
+add_host
+rabbitmq_user
+pamd
+win_command
+assemble
+htpasswd
+apk
+openbsd_pkg
+win_get_url
+win_chocolatey
+docker_image
+tempfile
+locale_gen
+easy_install
+django_manage
+composer
+
+
+
+
+
+
+
+  

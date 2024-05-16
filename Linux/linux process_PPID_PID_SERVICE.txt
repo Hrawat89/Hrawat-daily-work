@@ -1,0 +1,140 @@
+#!/bin/bash
+
+# Function to list running services and their PIDs for systemd
+list_systemd_services() {
+    echo "Listing running services and their PIDs (systemd):"
+    systemctl list-units --type=service --state=running --no-pager | while read -r line; do
+        if [[ "$line" =~ ^([[:alnum:]-]+\.service) ]]; then
+            service_name="${BASH_REMATCH[1]}"
+            main_pid=$(systemctl show -p MainPID --value "$service_name")
+            if [ "$main_pid" -ne 0 ]; then
+                echo "Service: $service_name, Main PID: $main_pid"
+                list_child_pids "$main_pid"
+            fi
+        fi
+    done
+}
+
+# Function to list running services and their PIDs for SysVinit
+list_sysvinit_services() {
+    echo "Listing running services and their PIDs (SysVinit):"
+    service --status-all 2>&1 | grep '\[ + \]' | while read -r line; do
+        service_name=$(echo "$line" | awk '{print $4}')
+        main_pids=$(pgrep "$service_name")
+        if [ -n "$main_pids" ]; then
+            for main_pid in $main_pids; do
+                echo "Service: $service_name, Main PID: $main_pid"
+                list_child_pids "$main_pid"
+            done
+        fi
+    done
+}
+
+# Function to list child PIDs of a given parent PID
+list_child_pids() {
+    parent_pid=$1
+    child_pids=$(pgrep -P "$parent_pid")
+    if [ -n "$child_pids" ]; then
+        echo "  Child PIDs of $parent_pid: $child_pids"
+    else
+        echo "  No child processes for PID $parent_pid"
+    fi
+}
+
+# Function to check which init system is being used
+check_init_system() {
+    if pidof systemd &> /dev/null; then
+        INIT_SYSTEM="systemd"
+    elif pidof /sbin/init &> /dev/null; then
+        INIT_SYSTEM="sysvinit"
+    else
+        INIT_SYSTEM="unknown"
+    fi
+}
+
+# Main script execution
+check_init_system
+
+case $INIT_SYSTEM in
+    systemd)
+        list_systemd_services
+        ;;
+    sysvinit)
+        list_sysvinit_services
+        ;;
+    *)
+        echo "Unknown or unsupported init system."
+        ;;
+esac
+-----------------------------------------------------------------
+systemd| Unit file|
+-------------------------------
+systemd-analyze critical-chain
+
+  The systemd-analyze critical-chain command in Linux is used to analyze and display the time-critical chain of 
+  system services and their startup times during the boot process.
+graphical.target @10.750s
+└─multi-user.target @10.750s
+  └─network.target @10.735s
+    └─NetworkManager.service @6.234s +4.500s
+      └─dbus.service @6.232s
+        └─basic.target @6.223s
+          └─sockets.target @6.223s
+            └─dbus.socket @6.222s
+              └─sysinit.target @6.215s
+                └─systemd-timesyncd.service @6.000s +0.215s
+                  └─systemd-tmpfiles-setup.service @5.750s +0.234s
+                    └─local-fs.target @5.745s
+                      └─boot.mount @5.123s +0.622s
+                        └─systemd-fsck@dev-disk-by\x2duuid-xxxx.service @4.500s +0.623s
+                          └─dev-disk-by\x2duuid-xxxx.device @4.500s
+-------------------------------------------------------
+To run a script or command before system shutdown in Linux, you can create a systemd service that triggers your script during the shutdown process.
+[Unit]
+Description=Run a custom script before shutdown
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/shutdown_script.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=halt.target reboot.target shutdown.target
+-----------------------------------------------------------
+What systemctl enable Does
+->1. Creates Symbolic Links:
+     When you enable a service, systemctl creates symbolic links in the /etc/systemd/system/ directory. These links point to the service's
+	 unit file located in /lib/systemd/system/ or /usr/lib/systemd/system/.
+  2. Targets and Wants Directory:
+     A target in systemd is a grouping of units. For example, multi-user.target is similar to runlevel 3 on SysVinit systems,
+	 and graphical.target is similar to runlevel 5. 
+	 The Wants directory for a target contains symbolic links to units that should be started when the target 
+	 is activated. For example, enabling a service might create a link in /etc/systemd/system/multi-user.target.wants/. 	 
+---------------------------------------------------
+#cat /usr/lib/systemd/system/nginx.service
+[Unit]
+Description=The nginx HTTP and reverse proxy server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+# Nginx will fail to start if /run/nginx.pid already exists but has the wrong
+# SELinux context. This might happen when running `nginx -t` from the cmdline.
+# https://bugzilla.redhat.com/show_bug.cgi?id=1268621
+ExecStartPre=/usr/bin/rm -f /run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t
+ExecStart=/usr/sbin/nginx
+ExecReload=/bin/kill -s HUP $MAINPID
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+KillMode=mixed
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+
+
