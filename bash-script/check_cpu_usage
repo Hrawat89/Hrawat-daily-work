@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Version 0.0.2 - Jan/2009
+# Changes: improved grabbing of the idle cpu time
+#
+# by Thiago Varela - thiago@iplenix.com
+#set -x 
+#top1=`which top 2>/dev/null`
+#echo "$top1"
+top=$(top -bn1)
+function help {
+	echo -e "\n\tThis plugin shows the % of used CPU, using  top the % of used CPU is above <integer>, returns CRITICAL state\n\t\t-w <integer>\tIf the % of used CPU is below CRITICAL and above <integer>, returns WARNING state\n"
+	exit -1
+}
+
+# Getting parameters:
+while getopts "w:c:h" OPT; do
+	case $OPT in
+		"w") warning=$OPTARG;;
+		"c") critical=$OPTARG;;
+		"h") help;;
+	esac
+done
+
+# Checking parameters:
+( [ "$warning" == "" ] || [ "$critical" == "" ] ) && echo "ERROR: You must specify warning and critical levels" && help
+[[ "$warning" -ge  "$critical" ]] && echo "ERROR: critical level must be highter than warning level" && help
+
+idle=`top -bn1  | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/"| cut -d. -f1`
+used=`expr 100 - $idle`
+# Comparing the result and setting the correct level:
+if [[ $used -ge $critical ]]; then
+        msg="CRITICAL"
+        status=2
+else if [[ $used -ge $warning ]]; then
+        msg="WARNING"
+        status=1
+     else
+        msg="OK"
+        status=0
+     fi
+fi
+
+# Printing the results:
+echo "$msg - CPU used=$used% idle=$idle% | 'CPU Usage'=$used%;$warning;$critical;"
+exit $status

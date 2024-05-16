@@ -1,0 +1,60 @@
+##########ansible playbook file for replace file in remote server
+## downlord check_cpu_usage from 102 server on path /usr/local/nagios/libexec/
+--- 
+- name: Replace file on remote server with backup
+  hosts: 3.110.190.173
+  become: yes
+  tasks:
+    - name: Copy file to remote server
+      ansible.builtin.copy:
+        src:  /
+        dest: /usr/local/nagios/libexec/check_cpu_usage
+        owner: nagios
+        group: nagios
+        mode: '0777'
+        backup: true
+r20fTPy@AdbP@NiC
+35
+102
+23
+36
+38
+137
+138
+139
+140
+107
+108
+37
+158
+159
+160
+
+
+
+
+
+146
+148
+
+
+
+Superblock, Dentry, inode 
+File command provde the type of file and dir
+types of file:
+1 normal file/txt file
+2. dir file
+3. soft link file(symbolic link file) ln -server
+4. pipe file /FIFO file ---> Mkfifo
+5. character file/ block drvice file ---->mknod
+6. socket file --> mksock
+7. hard link file ln 
+
+ls -F
+trap in bash scripts
+what kind of information have an inode no./ MATADATA also called --inode
+    ls -i 
+	stat filename
+Dangling ponter > memeory pointer dose not exists (deallocated) also its use to create softlink and remove orginal file.
+what is major and minor number of file and dir.
+lsmod ans modprobe command use to kerenl module command

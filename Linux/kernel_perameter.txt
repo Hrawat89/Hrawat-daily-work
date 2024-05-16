@@ -1,0 +1,471 @@
+516  yum update
+  517  subscription-manager list --installed
+  518  subscription-manager config --list
+  519  subscription-manager list --available
+  520  subscription-manager list --available --all
+  521  vim /etc/rhsm/rhsm.conf
+  522  wget h http://sam.example.com/pub/candlepin-cert-consumerlatest.noarch.rpm
+  523  history
+  524  subscription-manager config --list
+  525  history
+  526   subscription-manager list --available
+  527  man  subscription-manager
+  528  man  subscription-manager repo --list
+  529  subscription-manager repo --list
+  530  subscription-manager repo list
+  531  subscription-manager repos --enable rhel-7-server-rpms
+  532  subscription-manager config --list
+  533  subscription-manager release --unset
+  534   yum versionlock clear
+  535  yum versionlock clear
+  536  yum repolist
+  537  yum install yum-plugin-versionlock
+  538  yum versionlock clear
+  539  vim /etc/locale.conf
+  540  yum install -y leapp
+  541  subscription-manager repos --enable rhel-7-server-extras-rpms
+  542  yum update
+  543  reboot
+  544  ip a
+  545  dhclient
+  546  ip a
+  547  dhclient
+  548  dhclient -r
+  549  dhclient
+  550  ip a
+  551  ping 192.168.2.128
+  552  ip a
+  553  dhclient
+  554  dhclient -r
+  555  dhclient
+  556  ip a
+  557  dhclient
+  558  dhclient -r
+  559  dhclient
+  560  ip a
+  561  dhclient -r
+  562  ip a
+  563  dhclient
+  564  ip a
+  565  dhclient
+  566  dhclient -r
+  567  dhclient
+  568  ip a
+  569  yum clean all
+  570  yum repolist
+  571  cd  /etc/yum.repos.d/
+  572  ls -lrt
+  573  yum install nsloolup
+  574  ls -ort
+  575  ls -lrt
+  576  rm  -rf opennms-repo-stable-rhel7.* remi* pgdg-redhat-all.repo
+  577  ls -lrt
+  578  vim rhel.repo
+  579  :q!
+  580  getenforce
+  581  setenforce 0
+  582  ip a
+  583  df -h
+  584  cd /dev/
+  585  ls
+  586  ls -lrt
+  587  ls
+  588  ip a
+  589  dhclient
+  590  dhclient -r
+  591  ip a
+  592  dhclient
+  593  ip a
+  594  getenforce
+  595  iptables -nvL
+  596  iptables -F
+  597  service firewalld stop
+  598  root
+  599  ip a
+  600  subscription-manager-gui
+  601  yum install leapp leapp-repository
+  602  yum clean all
+  603  yum repolist
+  604  cd /etc/yum.repos.d/
+  605  ls -lrt
+  606  vim rhel.repo
+  607  mv rhel.repo /opt/
+  608  yum repolist
+  609  yum install leapp leapp-repository
+  610  cd /etc/leapp/files/
+  611  ls
+  612  ll
+  613  leapp -v
+  614  leapp --version
+  615  wget https://access.redhat.com/sites/default/files/attachments/leapp-data14.tar.gz
+  616  lvs
+  617  wget https://access.redhat.com/sites/default/files/attachments/leapp-data3.tar.gz
+  618  pwd
+  619  ls -lrt
+  620  tar -xzvf leapp-data14.tar.gz
+  621  ls -lrt
+  622  rm u* r* p*
+  623  mv leapp-data3.tar.gz /opt/
+  624  tar -xzvf leapp-data14.tar.gz
+  625  mv leapp-data14.tar.gz /opt/
+  626  leapp upgrade
+  627  vim  /var/log/leapp/leapp-upgrade.log
+  628  vim /var/log/leapp/leapp-report.txt
+  629  reboot
+  630  ip a
+  631  dhclient
+  632  ip a
+  633  getenforce
+  634  setenforce 0
+  635  vim /etc/grub2.cfg
+  636  cd /boot/grub2/grub.cfg
+  637  vim /boot/grub2/grub.cfg
+  638  rpm -qa | grep kernel-devel
+  639  yum install "kernel-devel-uname-r == $(uname -r)"
+  640   yum info kernel|grep -E "Name|Version|Release"
+  641   yum info kernel-devel
+  642  history
+  643  yum remove kernel-devel*
+  644  yum remove kernel-devel
+  645  yum install  kernel-devel
+  646  vim  /etc/ssh/sshd_config
+  647  service  sshd restart
+  648  ip a
+  649  dhclient
+  650  ip a
+  651  getenforce
+  652  setenforce 0
+  653  iptables -F
+  654  init 6
+  655  ip a
+  656  rpm -qa| grep kernel
+  657  rpm -i| grep kernel
+  658  rpm -q| grep kernel
+  659  rpm -a| grep kernel
+  660  hostnamectl | grep Kernel
+  661  rpm -qa kernel
+  662  dnf list installed kernel
+  663  leapp upgrade
+  664  cd /etc/leapp/files/
+  665  ls -lrt
+  666  vim pes-events.json
+  667  dhclient
+  668  getenforce  0
+  669  iptables -F
+  670  ls
+  671  ls -lrt
+  672   cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.backup
+  673  ls -rt
+  674  ls -lrt
+  675  dracut -N -f
+  676  ls -lrt
+  677  leapp upgrade
+  678  df -h
+  679  ls -lrt
+  680  rm initramfs-3.10.0-1160.42.2.el7.x86_64.img.backup
+  681  ls -lrt
+  682  rm  initramfs-3.10.0-1062.el7.x86_64.img
+  683  rm -rf  vmlinuz-3.10.0-1062.el7.x86_64
+  684  ls -lrt
+  685  rm  -rf  config-3.10.0-1062.el7.x86_64
+  686  rm  System.map-3.10.0-1062.el7.x86_64
+  687  rm  initramfs-3.10.0-1062.el7.x86_64kdump.img
+  688  ls -lrt
+  689  rm -rf  symvers-3.10.0-1062.el7.x86_64.gz
+  690  init 6
+  691  leapp upgrade
+  692  vim /var/log/leapp/answerfile
+  693  vim /var/log/leapp/leapp-report.txt
+  694  man rmmod
+  695  rmmod mptbase
+  696  rmmod mptscsih
+  697  rmmod mptspi
+  698  rmmod pata_acpi
+  699  rmmod mptspi
+  700  modprobe -r mptscsih
+  701  vi /etc/modprobe.d/local-blacklist.conf
+  702  vim /etc/modprobe.d/local-blacklist.conf
+  703  shutdown -r now
+  704  getenforce
+  705  setenforce 0
+  706  dhclo
+  707  dhclient
+  708  leapp answer --section remove_pam_pkcs11_module_check.confirm=True
+  709  modprobe
+  710  modprobe -r
+  711  modprobe -r mptspi
+  712  leapp update
+  713  leapp upgrade
+  714  vim /var/log/leapp/leapp-report.txt
+  715  dhclient
+  716  leapp upgrade
+  717  vim /var/log/leapp/leapp-report.txt
+  718  modprobe -r mptspi
+  719  vim /etc/modprobe.d/dccp-blacklist.conf
+  720  vim /etc/modprobe.d/local-blacklist.conf
+  721  init 6
+  722  vim /var/log/leapp/leapp-report.txt
+  723  leapp upgrade
+  724  vim /var/log/leapp/leapp-report.txt
+  725  ls -lrt /var/log/leapp/
+  726  date
+  727  vim leapp-report.txt
+  728  vim /var/log/leapp/leapp-report.txt
+  729  cd /etc/modprobe.d/
+  730  ls -lrt
+  731  vim /var/log/leapp/leapp-report.txt
+  732  dhclient
+  733  ip a
+  734  modprobe --showconfig | grep blacklist
+  735  modprobe --showconfig | grep install
+  736  vim /etc/modprobe.d/local-blacklist.conf
+  737  modprobe --showconfig | grep blacklist
+  738  cd /etc/modules-load.d/
+  739  ls
+  740  cd ..
+  741  ls -lrt
+  742  vim modprobe.d/tuned.conf
+  743  vim modprobe.d/firewalld-sysctls.conf
+  744  vim modprobe.d/dccp-blacklist.conf
+  745  vim modprobe.d/local-blacklist.conf
+  746  cat modprobe.d/local-blacklist.conf
+  747  lsmod | grep -i mptspi
+  748  mode info mptspi
+  749  modeinfo mptspi
+  750  modinfo mptspi
+  751  modprobe --remove -v mptspi
+  752  cp /etc/modprobe.d/local-blacklist.conf /etc/modprobe.d/mptspi-blacklist.conf
+  753  cat  modprobe.d/local-blacklist.conf
+  754  cp /etc/modprobe.d/local-blacklist.conf /etc/modprobe.d/mptscsih-blacklist.conf
+  755  cp /etc/modprobe.d/local-blacklist.conf /etc/modprobe.d/mptbase-blacklist.conf
+  756  cp /etc/modprobe.d/local-blacklist.conf /etc/modprobe.d/pata_acpi-blacklist.conf
+  757  rm  /etc/modprobe.d/local-blacklist.conf
+  758  vim /etc/modprobe.d/mptscsih-blacklist.conf
+  759  vim /etc/modprobe.d/mptbase-blacklist.conf
+  760  vim /etc/modprobe.d/mptspi-blacklist.conf
+  761  vim /etc/modprobe.d/pata_acpi-blacklist.conf
+  762  cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.$(date +%m-%d-%H%M%S).bak
+  763  dracut --omit-drivers "mptspi mptscsih mptbase pata_acpi" -f
+  764  grep GRUB_CMDLINE_LINUX /etc/sysconfig/grub
+  765  vim /etc/sysconfig/grub
+  766  modprobe --showconfig | grep blacklist
+  767  rpm -q mptspi
+  768  rpm -q pata_acpi
+  769  sed -i '/^GRUB_CMDLINE_LINUX=/s/"$/ mptscsih-blacklist.blacklist=1 rd.driver.blacklist=mptscsih-blacklist"/' /etc/sysconfig/grub
+  770  cat /etc/sysconfig/grub
+  771  sed -i '/^GRUB_CMDLINE_LINUX=/s/"$/ pata_acpi-blacklist.blacklist=1 rd.driver.blacklist=pata_acpi-blacklist"/' /etc/sysconfig/grub
+  772  cat /etc/sysconfig/grub
+  773  sed -i '/^GRUB_CMDLINE_LINUX=/s/"$/ mptspi-blacklist.blacklist=1 rd.driver.blacklist=mptspi-blacklist"/' /etc/sysconfig/grub
+  774  cat /etc/sysconfig/grub
+  775  sed -i '/^GRUB_CMDLINE_LINUX=/s/"$/ mptbase-blacklist.blacklist=1 rd.driver.blacklist=mptbase-blacklist"/' /etc/sysconfig/grub
+  776  cp /boot/grub2/grub.cfg /opt/
+  777  grub2-mkconfig -o /boot/grub2/grub.cfg
+  778  cd /boot/
+  779  ls
+  780  ls -lrt
+  781  vim /boot/efi/EFI/redhat/grub.cfg
+  782  lsmod | grep -i mptspi
+  783  init 6
+  784  ls
+  785  ls -lrt
+  786  cd /var/log/
+  787  ls -lrt
+  788  ip a
+  789  dhclient
+  790  ip a
+  791  ip a
+  792  history
+  793  leapp upgrade
+  794  cd /boot/
+  795  ls -lrt
+  796  init 6
+  797  history
+[root@localhost ~]#
+f564c071-3876-467f-9e4e-0c3d7fead877
+8804062c-eead-4ece-8c80-55b4249ac84b
+8a85f99c7c18d04a017c270450d06936 pool ID
+ 
+blacklist pata_acpi mptscsih 
+install pata_acpi /bin/false
+blacklist mptscsih
+install mptscsih /bin/false
+blacklist  
+install mptbase /bin/false
+
+
+
+
+https://www.redhat.com/en/blog/upgrading-rhel-7-rhel-8-leapp-and-boom (rhel8 upgrade with boom)
+https://www.redhat.com/en/blog/boom-booting-rhel-lvm-snapshots  (boom snapshort for boot recovery)
+
+modify kernal peramter:
+
+/proc 
+The /proc directory also contains information about system hardware and any currently running
+processes. Most files in the /proc file system are read-only, but some files (primarily those in /proc/sys)
+can be manipulated by users and applications to communicate configuration changes to the kernel.
+#top
+#ps
+#vmstat
+#sar
+# sysctl is used to modify kernal paramter at run time 
+
+------------------------------------------------------
+LISTING ALL INSTALLED KERNELS
+# grubby --info=ALL | grep ^kernel
+-----------------------------------------------
+LISTING CURRENTLY LOADED KERNEL MODULES
+* The kmod package is installed
+$ lsmod
+Module Size Used by
+fuse 126976 3
+uinput 20480 1
+xt_CHECKSUM 16384 1
+ipt_MASQUERADE 16384 1
+xt_conntrack 16384 1
+ipt_REJECT 16384 1
+In the example above:
+The first column provides the names of currently loaded modules.
+The second column displays the amount of memory per module in kilobytes.
+The last column shows the number, and optionally the names of modules that are
+dependent on a particular module.
+---------------------------------------------
+. SETTING A KERNEL AS DEFAULT
+The following procedure describes how to set a specific kernel as default using the grubby commandline tool and GRUB2.
+
+# grubby --set-default $kernel_path
+
+The command uses a machine ID without the .conf suffix as an argument.
+The machine ID is located in the /boot/loader/entries/ directory
+# grubby --info ALL | grep id
+# grubby --set-default /boot/vmlinuz-<version>.<architecture>
+ 
+#grubby --default-kernel (to dispaly default kernal version path of kernel)
+-------------------------------------------------------------
+Setting the default kernel for only the next boot
+ Execute the following command to set the default kernel for only the next reboot using the
+grub2-reboot command:
+# grub2-reboot <index|title|id>
+
+----------------------------------------------------------------------
+DISPLAYING INFORMATION ABOUT KERNEL MODULES
+The kmod package is installed.
+To display information about any kernel module, execute
+$lsmod display all module
+$ modinfo <KERNEL_MODULE_NAME>
+------------------------------------------------------------------
+LOADING KERNEL MODULES AT SYSTEM RUNTIME
+The modules are located in the /lib/modules/$(uname -r)/kernel/<SUBSYSTEM>/ directory.
+# modprobe <MODULE_NAME>
+verify the relevant module was loaded:
+$ lsmod | grep <MODULE_NAME>
+
+-------------------------------------------
+UNLOADING KERNEL MODULES AT EARLY STAGES OF THE
+BOOT PROCESS
+Press e key to edit the entry.
+Append modprobe.blacklist=module_name to the end of the line
+Press CTRL+x keys to boot using the modified configuration
+--------------------------------------------------
+LOADING KERNEL MODULES AUTOMATICALLY AT SYSTEM BOOT TIME
+1.Select a kernel module you want to load during the boot process.
+The modules are located in the /lib/modules/$(uname -r)/kernel/<SUBSYSTEM>/ directory.
+# echo <MODULE_NAME> > /etc/modules-load.d/<MODULE_NAME>.conf
+---------------------------------------------------------
+PREVENTING KERNEL MODULES FROM BEING AUTOMATICALLY LOADED AT SYSTEM BOOT TIME
+# vim /etc/modprobe.d/blacklist.conf
+# Blacklists <KERNEL_MODULE_1>
+blacklist <MODULE_NAME_1>
+install <MODULE_NAME_1> /bin/false
+# Blacklists <KERNEL_MODULE_2>
+blacklist <MODULE_NAME_2>
+install <MODULE_NAME_2> /bin/false
+
+ Create a backup copy of the current initial ramdisk image before rebuilding:
+# cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).bak.$(date +%m-%d-%H%M%S).img
+4. Generate a new initial ramdisk image to reflect the changes:
+# dracut -f -v
+If you are building an initial ramdisk image for a different kernel version than you are
+currently booted into, specify both target initramfs and kernel version:
+# dracut -f -v /boot/initramfs-<TARGET_VERSION>.img <CORRESPONDING_TARGET_KERNEL_VERSION>
+
+
+----------------------------
+CONFIGURING KERNEL PARAMETERS AT RUNTIME
+It is possible to address the kernel parameters through:
+The #sysctl command
+The virtual file system mounted at the /proc/sys/ directory
+The configuration files in the /etc/sysctl.d/ directory\
+
+. To list all parameters and their values, use the following:
+# sysctl -a
+The # sysctl -a command displays kernel parameters, which can be adjusted at
+runtime and at boot time.
+To configure a parameter temporarily, use the command as in the following example:
+# sysctl <TUNABLE_CLASS>.<PARAMETER>=<TARGET_VALUE>
+To configure a parameter permanently:
+# sysctl -w <TUNABLE_CLASS>.<PARAMETER>=<TARGET_VALUE> >> /etc/sysctl.conf
+
+
+USING CONFIGURATION FILES IN /ETC/SYSCTL.D/ TO ADJUST 1. Create a new configuration file in /etc/sysctl.d/:
+# vim /etc/sysctl.d/<some_file.conf>
+2. Include kernel parameters, one per line, as follows:KERNEL PARAMETERS
+<TUNABLE_CLASS>.<PARAMETER>=<TARGET_VALUE>
+Save the configuration file.
+4. Reboot the machine for the changes to take effect.
+Alternatively, to apply changes without rebooting, execute:
+# sysctl -p /etc/sysctl.d/<some_file.conf>
+
+
+-----------------------------
+KEEPING KERNEL PANIC PARAMETERS DISABLED IN VIRTUALIZED ENVIRONMENTS
+
+WHAT IS A SOFT LOCKUP
+A soft lockup is a situation usually caused by a bug, when a task is executing in kernel space on a CPU
+without rescheduling. The task also does not allow any other task to execute on that particular CPU. As a
+result, a warning is displayed to a user through the system console. This problem is also referred to as
+the soft lockup firing.
+
+
+
+------------------------------------------------------------------
+ to install  specific software package using rpm command on Redhat Linux ?
+#rpm –ivh package_name 
+to remove the software package from on Redhat  Linux ?
+#rpm -ev package_name
+to upgrade the existing Redhat package using rpm command ?
+#rpm -Uvh package_name
+to display the list of installed software package’s files ?
+rpm -ql package_name 
+to get the installed software information like package version and short description of package ?
+# rpm -qi package_name
+to find files belongs to which rpm package 
+#rpm -qf file_location  
+to display list of configuration files for specific package ?
+rpm -qc package_name
+ to display a list of recently installed software ?
+rpm -qa –last
+to get the list of dependencies for specific rpm file ?
+rpm -qpR rpm_file
+ to get the list of dependencies for specific package ?
+rpm -qR package_name
+to remove the package without checking the dependencies on Redhat Linux ?
+rpm -ev –nodeps package_name
+-------------------------------------------------------------------------------------------------------
+to search the package in yum ?
+yum search package_name
+to get the package information using yum ?
+yum info package_name
+
+
+
+
+
+
+
+
+---------------------------------------------------
+
+systemctl target, service, slice, etc
+list of the targets and services on which a specified target is dependent can be viewed by running 
+# systemctl list-dependencies <target>

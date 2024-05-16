@@ -1,0 +1,125 @@
+Strong Working knowledge of VMware virtualization
+Hands on Experience Experience in deploying Server and Virtualization with VMware sphere, Technologies.
+Install,Configure and Administration of vCenter servers
+Strong VMware ESX/vSphere 5.x and 6.x Experience.
+Experience in P2V, VMotion, Storage VMotion, FT etc.
+Knowledge on Virtual Networking concepts
+Understanding of vmware HA/FT/DRS concepts
+Basic working knowledge of SAN/NAS Technologies
+VMware (ESX /VSphere) support Experience, VCP certification(desired)
+Administering Virtual Machines and troubleshooting vms
+Understanding Hyper-Converged Infrastructure
+Knowledge on VMWare ESX Server Hardware setup with HA/DRS Clustering/VMotion
+Must be able to troubleshoot VMware-ESX related incidents
+Must be able to Patch and maintain ESX host servers
+Good knowledge on blade servers: Dell, HP Blades and Enclosures
+Troubleshooting Hardware issues/errors
+Good knowledge on Cloud technology - Private/public/Hybrid cloud & Cloud stacks
+Automate tasks where appropriate with according scripts or other tools
+Knowledge on ITIL v3 framework
+
+Job Description :
+In-depth knowledge of Unix OS platforms (RHEL & OEL) & strong troubleshooting skills
+Linux Filesystem, file permissions & ownership 
+Knowledge of boot process & control 
+Knowledge of Run level & troubleshoot issues related to specific service 
+OS performance checks & troubleshooting performance issue 
+In-depth knowledge of LVM/VG/PV and troubleshooting skills 
+ACL management 
+User/Group management & sudo access 
+Understanding of crontab and scheduling of jobs
+Multipath configuration and management 
+Network File Sharing Services; NFS and CIFS
+Network configuration/management & troubleshooting (configuring bonding, vlan tagging) 
+Patching through Satellite & Client-side yum configuration 
+Satellite server configuration & management 
+Knowledge of different hardware architecture (HP, Dell, CISCO servers) and implementation 
+Management of Linux servers and hypervisors like OVM server, VMware ESXi 
+Adapt to projects, programs or methods based on customer or business partner feedback 
+Server management including migration and consolidation
+
+**Immediate Joiners are prefered**
+
+If interested, please share your CV at
+prachi.nigam@globtier.in
+
+Team Description:
+Analyzing API/Integration Requirements, then Planning/Delivering/Reviewing APIs/Integrations
+Working with both onshore Digia's and Customer's team members
+Miscellaneous Requirements:
+specific interest on APIs/integrations
+experience in working in customer interface
+Technology Requirements (in prioritized order):
+1. Java, 2. Apache Camel, 3. Nginx, 4. Spring Boot, 5. Linux
+
+trong Working knowledge of VMware virtualization
+Hands on Experience Experience in deploying Server and Virtualization with VMware sphere, Technologies.
+Install,Configure and Administration of vCenter servers
+Strong VMware ESX/vSphere 5.x and 6.x Experience.
+Experience in P2V, VMotion, Storage VMotion, FT etc.
+Knowledge on Virtual Networking concepts
+Understanding of vmware HA/FT/DRS concepts
+Basic working knowledge of SAN/NAS Technologies
+VMware (ESX /VSphere) support Experience, VCP certification(desired)
+Administering Virtual Machines and troubleshooting vms
+Understanding Hyper-Converged Infrastructure
+Knowledge on VMWare ESX Server Hardware setup with HA/DRS Clustering/VMotion
+Must be able to troubleshoot VMware-ESX related incidents
+Must be able to Patch and maintain ESX host servers
+Good knowledge on blade servers: Dell, HP Blades and Enclosures
+Troubleshooting Hardware issues/errors
+Good knowledge on Cloud technology - Private/public/Hybrid cloud & Cloud stacks
+Automate tasks where appropriate with according scripts or other tools
+Knowledge on ITIL v3 framework
+
+5+ years of experience
+
+
+Location: Bang, Hyd, noida, pune & Chennai
+
+
+Thanks & Regards
+
+Nova
+
+tat3@enormousit.com
+
+
+Job Description:
+Educational qualifications – Must be a graduate.
+Should have a minimum of 4 to 10 years of experience as a Linux/Unix System Administrator.
+Should have expertise on at least 2 flavors of Unix. Linux is a must!
+Should have a deep level of understanding of Linux OS & should be able to handle day to day admin tasks.
+Should be well versed with OS patching.
+Should be well versed shell scripting.
+Should have excellent troubleshooting skills to fix system down issues.
+Should be able to handle critical & high severity technical bridges.
+Puppet/Ansible knowledge would be an added advantage.
+Should have knowledge on clustering.
+Should be able to build Linux servers as well as perform OS upgrades.
+Knowledge of different hardware architecture, roadmap and implementation.
+Should be well versed on capacity & configuration management analysis of the servers
+Should be well versed with ITIL.
+Should have excellent written & oral communication skills.
+Must be keen to learn new development methods and technologies and be a fast learner.
+Be enthusiastic about work and be a good team player.
+Maintain the positive attitude, be honest and sincere in work.
+Knowledge on virtualization.
+Develop and implement processes and procedures to ensure that NTT DATA Services meet the client’s expectations and deliver quality services within specified service level agreements (SLAs) and contractual obligations
+Propose possible process and technical improvements to management.
+
+1) Subject matter expert on Enterprise class monitoring systems including System Center Operations Manager & Nagios - Design, Architecture, Integration, Configuration and Implementation and Monitoring over 3000+ and above servers and network devices
+2) Experience in deployment of SCOM management packs
+3) Experience in development of SCOM & Nagios management for custom monitoring requirements for server and network devices performance and availability
+4) Sound knowledge on LIVE Maps, ServiceNow, WhatsApp Gold (advantage)
+5) Experience on Azure Cloud Monitoring tools (OMS)
+6) Strong analytical & troubleshooting skills on performance issues, OS configuration and hardware failures and apply fixes
+7) Event Management (analyze alerts and logs)
+
+ob Description :
+Division/Department Location Job Title Linux Sr. Consultant No of position Reports to Title Level/Grade : Type of position: Hours________ / week Stream Full-time Exempt Linux Part-time Nonexempt Contractor Intern General Description Responsibilities :- \
+Adhering to SLAs ITIL Processes awareness and adhering to Perform root cause analysis Design and Plan Solutions 
+Troubleshooting technical issues Provide Solution for escalated calls Defining processes and ensuring that 
+the processes are adhered to Oversees and is responsible for successful completion of Installation, configuration and migration Understanding of Multi-geo 
+support environment Responsible for building / maintaining a test environment Responsible for strategizing a backup plan and test plan for failure scenario Improves 
+and maintains customer and employee satisfaction Planning Backup/Restoration Strategy for 24x7 operation support Suggesting patches/upgrades to maintain security level Testing / Auditing/processes as required from time to time Identify Skill gaps and plan for training / knowledge updating Perform H/W & performance tuning and maintenance Day-to-Day reporting analysis tasks Vendor co-ordination & followup Technical Requirements Planning and designing Linux server provisioning Installing, configuring and maintaining Linux Servers ( RHEL, SLES ) Planning and designing High availability soltion around Linux or Veritas Cluster Installation and configuration of HA environment using Linux or Veritas Cluster. Configuration and administration of Linux and Veritas logical volume manager. Installing and Maintaining Linux Kickstart / AI environment Patch and Package administration: Satellite Server, Yum Writing shell scripts to acomplish day to day system administration task Configuring and supporting HP C7000 Chassis, HP Blades/proliant/Rack Mount, IBM, Dell x86 Servers Troubleshooting Hardware and Operating system related issue Administer and configure various FS like Ext3/4, VxFS, XFS, Pseudo FS Installation, configuration and management of Network bonding and I/O Multipathing Capacity planning and fine tune system for optimal performance Understanding of SAN and NAS storage. Should possess knowledge of Storage and Network towers. Administration of NIS or LDAP environment Configuring Unix Security baseline Performance Management & fine tuning Experience in System Fault Tolerance Design, Business continuity and Disaster recovery planning Vendor(OEM) Coordination to Troubleshoot and fix HW issues, co-ordination,install H/W, Firmware Planning Work on Problem management case (Collecting re-occurring incidents) Advance patch Management for large count UNIX/Linux Servers in Enterpirse Data Center using Satellite/opsware/BladeLogic Advance Cluster set up using IO fencing, More than 3 nodes, Enterprise Storage Access, Multiple Fail Over scenario, geo Cluster, Across Chasis, custom Application service Group etc UNIX Virtual servers (LPAR,LDOM,HP-VM,KVM) Architecture Design inclusing H/W, Resource Assignation etc Planning and Testing Disaster recovery solution. Server Migration planning for P2P, P2V,V2V problem Analysis and Resolution for mass issue and latest technology upgrade in environment based on business goals Architecture design for HLD, LLD, BOM finalization for Enterpise Data center Serv

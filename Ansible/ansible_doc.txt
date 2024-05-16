@@ -1,0 +1,193 @@
+specific order of precedence to determine which configuration settings to use
+1. command line options
+2. Environment variable "ANSIBLE_"  (like ANSIBLE_CONFIG, ANSIBLE_LIBRARY)
+3. Local configuration (PWD Corrent directory that have to ansible configuration file)
+4. User Configuration file:  ansible looks for a ansible conf file on  home directory.
+5. Global configuration  file: default configration file.
+------------------------------------------
+To check the default configuration  file perametar value and all info 
+ Ansible --version #show program's version number, config file location, configured module search path, module location, executable location and exit
+ ansible [core 2.14.9]
+  config file = /home/devops/ansible.cfg
+  configured module search path = ['/home/devops/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/devops/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.9.18 (main, Jan  4 2024, 00:00:00) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] (/usr/bin/python3)
+  jinja version = 3.1.2
+  libyaml = True
+ ------------------------------------
+ #anisble-doc         #show the module information and also provide the module document option and other info
+---------------------------------------------
+You can generate an Ansible configuration file, ansible.cfg, that lists all default settings as follows:
+$ ansible-config init --disabled > ansible.cfg
+Include available plugins to create a more complete Ansible configuration as follows:
+$ ansible-config init --disabled -t all > ansible.cfg
+$ ansible-config dump --only-changed show the only changed default value in config file to check the default vale of config file by command 
+$ ansible-dump 
+if u check any a  spacfic file configuration 
+$ ansible-dump -c config_file PATH # by default it take precedence value of config file(defaults to first file found in precedence).
+-----------------------------------------
+$anisble-view  displays only the current config file. (defaults to first file found in precedence)
+---------------------------------------
+[defaults]
+inventory = path of inventory file
+remote_user = The name of the user to log in as on the managed hosts. If not specified, the current user's name is used.
+ask_pass = false Whether or not to prompt for an SSH password. Can be false if using SSH public key authentication. in ad-hoc command option use -k  
+[privilege_escalation]
+become = true  Whether to automatically switch user on the managed host (typically to root) after connecting. This can also be specified by a play
+become_method = sudo How to switch user (typically sudo, which is the default, but su is an option).
+become_user = root The user to switch to on the managed host (typically root, which is the default).
+become_ask_pass = false Whether to prompt for a password for your become_method. Defaults to false.
+--------------------------------------
+AD-HOC command:
+1. ansible host-pattern -m module [-a 'module arguments'] [-i inventory]
+
+2.For better readability and parsing of ad hoc command output, administrators might find it useful to 
+     have a single line of output for each operation performed on a managed host. Use the -o optionto display 
+     the output of Ansible ad hoc commands in a single line format.
+	 $ansible mymanagedhosts -m command -a /usr/bin/hostname -o
+3. If an ad hoc command does not specify which module to use with the -m option,
+     Red Hat Ansible Engine uses the command module by default.	
+4. Ansible command line options
+   inventory     -i
+   Remote_user   -u defult remote user ( Ansible will typically default to using the current user executing Ansible playbooks or commands.)
+   Become        --become, -b
+   become_user   --become_user
+   become_ask_pass --become_ask_pass, -k
+   for more information of options can do run the help commnad $ansible --help it will show all options 
+   
+--------------------------------------------------------------
+Command Module: 
+   1. in command module only run one command at a time.
+   2. The command module is used to execute simple, non-shell commands directly on the remote hosts.
+   3. It does not use a shell to execute the command, so shell features like shell expansions, pipes, and redirections are not interpreted.
+   4. this module is more suitable for running simple commands that do not require shell-specific features
+   
+Row Module:
+   1. raws codule it can execute more then one command at atime.
+   2. Both command and shell modules require a working Python installation on the managed host.
+      A third module, raw, can run commands directly using the remote shell, bypassing the module
+      subsystem. This is useful when managing systems that cannot have Python installed (for example,
+      a network router). It can also be used to install Python on a host.
+	3. You would typically use the raw module when you need to perform actions 
+	   that can't be accomplished using Ansible's built-in modules or when you need to execute commands 
+	   that depend on a specific shell environment or behavior that Ansible's shell module doesn't provide.  
+	   
+shell module:
+    1. The shell module is used to execute shell commands on remote hosts. It allows you to run commands with 
+	   all the features and flexibility of the shell environment, including pipes, redirection, variable substitution, 
+	   and so on.
+    
+Ansible Key Terms:
+
+1. Inventory : List of nodes to which the Ansible control server (ACS) will connect (/etc/ansbile/hosts)
+2. Module : Atomic unit of automation in Ansible, we specify our desired state in ansible using modules
+3. Task: Task in Ansbile will consist of modules
+4. Play: Always play consist of Multiple task 
+5. Playbook : Will consists of one or more play's
+
+Writing the first playbook file 
+
+
+Basically ,there are 3 different playbook format
+1.Single line format
+2.Multi line format
+3.Dictitionary format
+ 
+Copy module: Dictitionary format
+    1. copy file control node to managing node
+example1:
+--------------------------------------------
+- name: copy a file src to dest
+  hosts: all
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: copy the a txt file sec to destination
+      copy:
+        src: /var/har1
+        dest: /var/
+        owner: ravi
+        group: ravi
+        mode: '0777'
+
+    - name:  check the command output on anisble control node
+      command: ls -lrt /var/har1  # run the command
+      register: command_output    # store the command output in  register variable.
+
+    - name: display command output
+      debug:                                 #Ansible module used to print debug information
+         var: command_output.stdout      #print the standard output
+---------------------------------------------------
+
+
+
+fatch module:  use to copy the file and directory  from managing node(node/clint) to control node (ansible master)
+   
+-----------------------------
+DEFINING VARIABLES: 
+1. Global scope: Variables set from the command line or Ansible configuration
+2. play scope: Variables set in the play and related structures 
+3. host scope: Variables set on host groups and individual hosts by the inventory, 
+               fact gathering, or registered tasks
+			   
+Defining Variables in Playbooks:
+1. by in playbook file
+   - hosts: all
+	 vars:
+	   user: joe
+	   home: /home/joe			   
+	   
+2. by define in saprate vars file
+
+	- hosts: all
+	  vars_files:
+		- vars/users.yml
+Using Variables in Playbooks:
+	vars:
+	user: joe
+	tasks:
+	  # This line will read: Creates the user joe
+	  - name: Creates the user {{ user }}
+		user:
+		  # This line will create the user named Joe
+		  name: "{{ user }}"		
+
+
+HOST VARIABLES AND GROUP VARIABLES:
+[servers]
+demo.example.com ansible_user=joe
+
+Defining the user group variable for the servers host group in inventory file.
+[servers]
+demo1.example.com
+demo2.example.com
+[servers:vars]
+user=joe	    
+
+
+
+[servers:children]
+servers1
+servers2
+
+Using Directories to Populate Host and Group Variables:
+1.The preferred approach to defining variables for hosts and host groups is to create two directories,
+  group_vars and host_vars, in the same working directory as the inventory file.
+2. To define group variables for the servers group, you would create a YAML file named group_vars/servers
+
+
+
+CAPTURING COMMAND OUTPUT WITH REGISTERED VARIABLES:
+---
+- name: Installs a package and prints the result
+  hosts: all
+  tasks:
+    - name: Install the package
+      yum:
+        name: httpd
+        state: installed
+        register: install_result
+    - debug: var=install_result
+    

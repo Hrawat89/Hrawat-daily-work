@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Function to list running services for systemd
+list_systemd_services() {
+    echo "Listing running services (systemd):"
+    systemctl list-units --type=service --state=running
+}
+
+# Function to list running services for SysVinit
+list_sysvinit_services() {
+    echo "Listing running services (SysVinit):"
+    service --status-all | grep '\[ + \]'
+}
+
+# Function to check which init system is being used
+check_init_system() {
+    if pidof systemd &> /dev/null; then
+        INIT_SYSTEM="systemd"
+    elif pidof /sbin/init &> /dev/null; then
+        INIT_SYSTEM="sysvinit"
+    else
+        INIT_SYSTEM="unknown"
+    fi
+}
+
+# Main script execution
+check_init_system
+
+case $INIT_SYSTEM in
+    systemd)
+        list_systemd_services
+        ;;
+    sysvinit)
+        list_sysvinit_services
+        ;;
+    *)
+        echo "Unknown or unsupported init system."
+        ;;
+esac
+
