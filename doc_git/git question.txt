@@ -1,4 +1,6 @@
  https://devopscube.com/set-git-upstream-respository-branch/
+ https://www.youtube.com/watch?v=LpwOuavyUQc&list=PL_euSNU_eLbegnt7aR8I1gXfLhKZbxnYX&index=5 Verryyyy IMP
+ https://git-school.github.io/visualizing-git/ git visualization tool online
  1. how to keep the forked repo in sync with the main repo?
  2.  What is Upstream in Git?
  
