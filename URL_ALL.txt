@@ -1,0 +1,88 @@
+https://devopscube.com/ for all devops topic blogs
+https://devopscube.com/git-for-devops/ for git 
+https://stackoverflow.com/search?q=%5Bgit%5D+rebase&s=89a980e8-e33e-4076-a2d7-f021c10d0ae7
+
+https://github.com/nginxinc github repository for nignx
+
+
+https://www.prodevopsguy.site/50-ansible-real-time-use-cases 
+https://www.prodevopsguy.site/
+
+https://github.com/NotHarshhaa/   all devops realtime project very imp for realtime project 
+
+
+https://youtu.be/nsJar753ROc?si=aFKPOU9xD8r-VCKy   elastic search video
+
+
+
+https://www.golinuxcloud.com/configure-kickstart-pxe-boot-server-linux/
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/preparing-for-a-network-install_installing-rhel-as-an-experienced-user
+https://docs.gitlab.com/omnibus/settings/nginx.html  nginx settig
+https://www.journaldev.com/26342/nginx-location-directive nginx setting
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/assembly_getting-started-with-partitions_managing-storage-devices
+https://www.stigviewer.com/stig/red_hat_enterprise_linux_8/2021-03-04/  VA report
+http://www.softpanorama.org/Scripting/shells.shtml shell script
+https://tldp.org/LDP/abs/html/x17974.html
+http://www.softpanorama.org/Scripting/shells.shtml scripting topic
+http://ftp.tudelft.nl/LDP/LDP/abs/html/abs-guide.html#EX58 scripts
+
+
+Ansible
+https://www.middlewareinventory.com/blog/
+https://www.educba.com/ansible-delegate_to/
+https://linuxhint.com/ansible-local-action-module/
+https://www.decodingdevops.com/ansible-delegate-to-module-with-examples/
+https://docs.ansible.com/ansible/2.8/user_guide/playbooks_python_version.html
+
+
+nagios---------------------
+https://www.tecmint.com/install-nagios-in-linux/
+https://tecadmin.net/install-nagios-core-service-on-centos-rhel/
+https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-centos-7
+https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04
+https://support.nagios.com/kb/category.php?id=58
+http://unixadminschool.com/blog/2017/06/add-linux-hosts-nagios-server-monitoring/
+https://www.unixmen.com/monitor-linux-server-using-nagios-core-nrpe/
+http://www.itzgeek.com/how-tos/linux/centos-how-tos/monitor-remote-linux-system-with-nagios-3.html
+https://www.tecmint.com/how-to-add-linux-host-to-nagios-monitoring-server/
+https://support.nagios.com/forum/viewtopic.php?f=6&t=31944
+https://sourceforge.net/projects/mcrypt/files/Libmcrypt/Production/
+http://www.middlewareprimer.com/blog/2016/04/29/cant-read-etcxinetd-dnrpe-no-file-directory/
+https://www.alfredtong.com/linux/how-to-configure-nrpe-under-xinetd/
+
+
+
+https://www.golinuxcloud.com/configure-kickstart-pxe-boot-server-linux/
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/preparing-for-a-network-install_installing-rhel-as-an-experienced-user
+https://docs.gitlab.com/omnibus/settings/nginx.html  nginx settig
+https://www.journaldev.com/26342/nginx-location-directive nginx setting
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/assembly_getting-started-with-partitions_managing-storage-devices
+https://www.stigviewer.com/stig/red_hat_enterprise_linux_8/2021-03-04/  VA report
+
+-------------------------------------------
+Apache server 
+https://httpd.apache.org/docs/current/glossary.html#regex
+
+
+
+
+
+
+26,2
+
+8267963696
+
+
+
+
+Veenit rawat
+
+English       44 
+hindi         67
+math          34
+computer      66
+sst           47
+science       28
+Total        286

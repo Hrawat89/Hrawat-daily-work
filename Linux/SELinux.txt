@@ -1,0 +1,33 @@
+In Red Hat Enterprise Linux, you can set individual domains to permissive mode while the system runs in enforcing mode. For example, to make the httpd_t domain permissive:
+
+# semanage permissive   # semanage permissive -a httpd_t
+
+
+he fixfiles -F onboot command is used to schedule a filesystem relabeling for the next boot. This is particularly useful when you need to ensure 
+that the SELinux security contexts are correctly set for all files and directories on your system. Here’s how you can use it
+
+
+#!/bin/bash
+
+echo "Starting full filesystem relabeling with fixfiles..."
+
+sudo fixfiles -F relabel
+
+echo "Filesystem relabeling complete. Rebooting the system..."
+reboot
+
+
+#!/bin/bash
+
+echo "Starting partial filesystem relabeling for /var/www..."
+
+sudo restorecon -Rv /var/www
+
+echo "Partial relabeling complete."
+
+
+---------------------------------
+Managing confined and unconfined users
+---------------------------------
+determine the current state of these booleans   $semanage boolean -l
+To list all SELinux users, their SELinux roles, and levels and ranges for MLS and MCS, use the $semanage user -l command as root.

@@ -1,0 +1,47 @@
+https://www.youtube.com/watch?v=Szr4DrM4E8Q&list=PLd5sTGXltJ-l9PKT2Bynhg0Ou2uESOJiH
+
+https://www.youtube.com/watch?v=c-xyooZyPW0&list=PLsbe6JgCskIny7ARSlPE7t3zjtMre56UK
+1. type od mysql replication:
+    a. replication using binary log file positions
+		writes updates and changes as “events” to the binary log
+		information in the binary log is stored in different logging formats according to the database changes being recorded
+		 source and each replica must be configured with a unique ID (Sever ID)
+		 
+	b. Replication with Global Transaction Identifiers
+	c. 
+---------------------------------------------------------------------	
+mysql> \s
+--------------
+mysql  Ver 8.0.36-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
+
+Connection id:          11
+Current database:
+Current user:           root@localhost
+SSL:                    Not in use
+Current pager:          stdout
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         8.0.36-0ubuntu0.22.04.1 (Ubuntu)
+Protocol version:       10
+Connection:             Localhost via UNIX socket
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    utf8mb4
+Conn.  characterset:    utf8mb4
+UNIX socket:            /var/run/mysqld/mysqld.sock
+Binary data as:         Hexadecimal
+Uptime:                 2 hours 23 min 2 sec
+
+Threads: 3  Questions: 469  Slow queries: 0  Opens: 291  Flush tables: 3  Open tables: 210  Queries per second avg: 0.054
+--------------
+sudo mysqld --initialize --user=mysql --datadir=/var/lib/my_log
+-------------------------------------------
+enabling general log   enabling set global general_log=1; for disabling to do 0
+ enabling slow log
+   long_query_time by default time is 10 sec. if we want to change to mysql> set global long_query_time = 5 sec
+   and min_examined_row_limit
+   log_slow_extra provide extra information about slow query logging
+   
+change the slow log location.
+    log_output save the log data in form of file and tables by defult it save in file to check >select @@log_output
+	
