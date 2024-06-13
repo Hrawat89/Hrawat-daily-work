@@ -1,7 +1,12 @@
+SELinux---> Security-Enhanced Linux
+  . A linux kernel sequrity unit.
+  Linux Security Module (LSM) 
+  DAC vs MAC (Discretionary Access control) (MAC Mandatory Access Control)
+
 In Red Hat Enterprise Linux, you can set individual domains to permissive mode while the system runs in enforcing mode. For example, to make the httpd_t domain permissive:
 
 # semanage permissive   # semanage permissive -a httpd_t
-
+matchpathcon /var/www/html/ /opt/data/data1/
 
 he fixfiles -F onboot command is used to schedule a filesystem relabeling for the next boot. This is particularly useful when you need to ensure 
 that the SELinux security contexts are correctly set for all files and directories on your system. Here’s how you can use it
@@ -11,11 +16,12 @@ that the SELinux security contexts are correctly set for all files and directori
 
 echo "Starting full filesystem relabeling with fixfiles..."
 
-sudo fixfiles -F relabel
+sudo fixfiles -F relabel   it will create ./autorelabel file then reboot
 
 echo "Filesystem relabeling complete. Rebooting the system..."
 reboot
-
+$ seinfo -u  list the available SELinux users
+$ seinfo -r  list the available role 
 
 #!/bin/bash
 
@@ -30,4 +36,62 @@ echo "Partial relabeling complete."
 Managing confined and unconfined users
 ---------------------------------
 determine the current state of these booleans   $semanage boolean -l
-To list all SELinux users, their SELinux roles, and levels and ranges for MLS and MCS, use the $semanage user -l command as root.
+To list all SELinux users, their SELinux roles, and levels and ranges for MLS and MCS, use the $	semanage user -l command as root.
+
+
+
+User:role:type:level
+to check the label of process(ex: httpd)
+----------------------------------------
+#ps axZ | grep httpd
+system_u:system_r:httpd_t:s0       2622 ?        Ss     0:00 /usr/sbin/httpd -DFOREGROUND
+to check the label of socket (ex: httpd)
+-----------------------------------------
+#netstat -taZ | grep httpd
+tcp6       0      0 [::]:http               [::]:*                  LISTEN      2622/httpd           system_u:system_r:httpd_t:s0
+
+
+To check the selinx log
+-------------------------
+journalctl -b 0
+Restorecon -V (option) /path/of/file
+also we can do by using command chcon -t <Contx_type> filename
+
+--------------------------------------
+TO check boolean 
+# getsebool -all
+# setsebool -P (parmanet) bool_name on/off
+# sealert -l "*" Find the reason with the sealert by usnig tool check all alart informarion. 
+
+Confined and unconfined users in SELinux
+--------------------------------------------
+By default, all Linux users in Red Hat Enterprise Linux, including users with administrative privileges,
+are mapped to the unconfined SELinux user unconfined_u. 
+You can improve the security of the system by assigning users to SELinux confined users.
+-------------------------------------------------
+to check all file context detils of targated polices
+cat /etc/selinux/targeted/contexts/files/file_contexts
+
+
+___________________________________>>>
+semanage port -l | grep 80 check port 80 open for httpd in selinux
+#semanage command is use to manage all seliux port process boolen etc...
+
+
+----------------------
+Making a Domain Permissive:
+To make a domain permissive, run the semanage permissive -a domain command, where domain is the domain you want to make permissive
+~]# semanage permissive -a httpd_t
+~]# semodule -l | grep permissive
+permissive_httpd_t    (null)
+permissivedomains     (null)
+
+
+If you no longer want a domain to be permissive, run the  
+~]# semanage permissive -d domain
+~]# semanage permissive -d httpd_t
+--------------------------------------
+Disabling Permissive Domains
+-------------------
+permissivedomains.pp module contains all of the permissive domain declarations that are presented on the system
+~]# semodule -d permissivedomains
